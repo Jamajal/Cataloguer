@@ -7,7 +7,6 @@ export default function CardField(){
             <Card></Card>
             <Card></Card>
             <Card></Card>
-            
         </StyledCardField>
     )
 }

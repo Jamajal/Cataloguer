@@ -6,17 +6,33 @@ export const StyledAnalyser = styled.div`
     flex-direction: column;
     gap: 5px;
 
+    color: #9599A8;
+
+    > h3{
+        font-size: 24px;
+        color: white;
+    }
+
     .statistics{
         display: flex;
+        gap: 50px;
     }
 
     .statistics > div{
         display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .statistics > div > label{
+        font-size: 20px;
     }
 
     .statistic-square{
-        width: 30px;
-        height: 30px;
+        width: 40px;
+        height: 40px;
+
+        border-radius: 5px;
     }
 
     .red{

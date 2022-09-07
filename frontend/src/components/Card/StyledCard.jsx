@@ -2,9 +2,9 @@ import styled from 'styled-components'
 
 export const StyledCard = styled.div`
     padding: 10px;
-    width: 100%;
     background-color: #1A242D;
     border-radius: 10px;
+    width: 100%;
 
     .name > p{
         font-size: 14px;
@@ -31,8 +31,7 @@ export const StyledCard = styled.div`
     }
 
     .card-info > .squares{
-        width: 100%;
-        margin: 10px 0 30px;
+        margin: 10px 0 20px;
         display: flex;
     }
 
@@ -43,8 +42,8 @@ export const StyledCard = styled.div`
     }
 
     .square{
-        width: 20px;
-        height: 20px;
+        width: 25px;
+        height: 25px;
 
         border-radius: 3px;
 

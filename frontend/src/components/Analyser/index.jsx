@@ -4,7 +4,7 @@ export default function Analyser(){
     return(
         <StyledAnalyser>
             <h3>Analise Geral</h3>
-            <div classNames="statistics">
+            <div className="statistics">
                 <div>
                     <div className="statistic-square red" />
                     <label>48%</label>

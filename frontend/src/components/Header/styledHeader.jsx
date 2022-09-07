@@ -2,22 +2,8 @@ import styled from 'styled-components'
 
 export const StyledHeader = styled.header`
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    .bar{
-        height: 40px;
-
-        background-color: #1A242D;
-
-        border-bottom: 1px solid #9599A8;
-    }
-
-    .filter{
-        display: flex;
-        justify-content: space-between;
-        padding: 20px 50px;
-    }
+    justify-content: space-around;
+    padding-bottom: 20px;
 
     .selects{
         display: flex;
@@ -36,22 +22,5 @@ export const StyledHeader = styled.header`
 
         border: solid 1px #9599A8;
         border-radius: 10px;
-    }
-
-    .filter > button{
-        width: 200px;
-        padding: 5px 10px;
-    
-        
-        font-weight: 700;
-        font-size: 20px;
-
-        color: white;
-        background-color: #E81538;
-
-        border: none;
-        border-radius: 10px;
-
-        cursor: pointer;
     }
 `

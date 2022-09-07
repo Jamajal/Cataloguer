@@ -3,7 +3,6 @@ import { StyledHeader } from './StyledHeader';
 export default function Header(){
     return (
             <StyledHeader>
-                <div className="bar" />
                 <div className="filter">
                     <div className="selects">
                         <select name="percent" id="percent">
@@ -26,7 +25,6 @@ export default function Header(){
                             <option value="2gale">GALE 2</option>    
                         </select>
                     </div>
-                    <button value="Filtrar">Filtrar</button>
                 </div>
             </StyledHeader>
     )

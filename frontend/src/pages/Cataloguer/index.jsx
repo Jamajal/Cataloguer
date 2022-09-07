@@ -1,22 +1,27 @@
+import Bar from '../../components/Bar'
 import Header from '../../components/Header'
 import Analyser from '../../components/Analyser'
 import CardField from '../../components/CardField'
 import Game from '../../components/Game'
 
-import './styles.css'
+import { StyledCataloguer } from './StyledCataloguer'
 
 export default function Cataloguer(){
     return(
-        <>
-           <Header />
-           <main>
-                <div>
+        <StyledCataloguer>
+            <Bar />
+            <main>
+                <div className="left-side">
+                    <Header />
                     <Game />
                     <Analyser />
                 </div>
-                <CardField />
+                <div className="right-side">
+                    <button value="Filtrar">Filtrar</button>
+                    <CardField />
+                </div>
            </main>
 
-        </>
+        </StyledCataloguer>
     )
 }
