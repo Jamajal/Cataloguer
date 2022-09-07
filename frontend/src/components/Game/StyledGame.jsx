@@ -12,7 +12,11 @@ export const StyledGame = style.div`
     div{
         height: 400px;
         width: 1000px;
-
+        display: flex;
         background-color: black;
+    }
+
+    iframe{
+        width: 100%;
     }
 `
