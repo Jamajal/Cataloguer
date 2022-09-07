@@ -15,20 +15,19 @@ export const StyledHeader = styled.header`
 
     .filter{
         display: flex;
-        justify-content: space-evenly;
-        padding: 20px 0px;
+        justify-content: space-between;
+        padding: 20px 50px;
     }
 
     .selects{
         display: flex;
-        gap: 45px;
+        gap: 80px;
     }
 
     .selects > select{
         width: 250px;
         padding: 5px 10px;
 
-        font-family: 'Roboto';
         font-weight: 300;
         font-size: 16px;
 
@@ -42,11 +41,17 @@ export const StyledHeader = styled.header`
     .filter > button{
         width: 200px;
         padding: 5px 10px;
+    
+        
         font-weight: 700;
         font-size: 20px;
+
         color: white;
         background-color: #E81538;
+
+        border: none;
         border-radius: 10px;
+
         cursor: pointer;
     }
 `
