@@ -10,8 +10,8 @@ export const StyledGame = style.div`
     border-radius: 10px;
 
     div{
-        height: 400px;
-        width: 1000px;
+        height: 100%;
+        width: 100%;
         display: flex;
         background-color: black;
     }

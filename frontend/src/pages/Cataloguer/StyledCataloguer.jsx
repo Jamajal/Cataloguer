@@ -1,10 +1,13 @@
 import styled from 'styled-components'
 
 export const StyledCataloguer = styled.div`
+    width: 100%;
+    height: 90vh;
 
     main{
         padding: 0 20px;
         height: 100%;
+        width: 100%;
 
         display: flex;
         justify-content: space-between;
@@ -18,12 +21,13 @@ export const StyledCataloguer = styled.div`
     }
 
     main > .left-side{
-        
+        height: 100%;
+        width: 100%;
     }
 
     main > .right-side{
         align-items: center;
-        width: 100%;
+        width: 30%;
     }
 
     main > .right-side > button{

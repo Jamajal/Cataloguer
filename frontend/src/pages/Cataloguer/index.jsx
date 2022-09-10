@@ -21,7 +21,6 @@ export default function Cataloguer(){
                     <CardField />
                 </div>
            </main>
-
         </StyledCataloguer>
     )
 }

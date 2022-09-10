@@ -1,17 +1,17 @@
 import styled from 'styled-components'
 
 export const StyledHeader = styled.header`
-    display: flex;
-    justify-content: space-around;
     padding-bottom: 20px;
-
+    width: 100%;
     .selects{
+        width: 100%;
         display: flex;
-        gap: 80px;
+        justify-content: center;
+        gap: 40px;
     }
 
     .selects > select{
-        width: 250px;
+        width: 25%;
         padding: 5px 10px;
 
         font-weight: 300;
