@@ -1,3 +1,4 @@
+import FilterButton from '../FilterButton'
 import { StyledHeader } from './StyledHeader';
 
 export default function Header(){
@@ -24,6 +25,9 @@ export default function Header(){
                             <option value="1gale">GALE 1</option>
                             <option value="2gale">GALE 2</option>    
                         </select>
+                    </div>
+                    <div className="mobile-only filter-button-header">
+                        <FilterButton />
                     </div>
                 </div>
             </StyledHeader>

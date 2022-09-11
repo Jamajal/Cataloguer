@@ -5,12 +5,13 @@ export const StyledAnalyser = styled.div`
     margin-top: 15px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 5px;
 
     color: #9599A8;
 
     > h3{
-        font-size: 24px;
+        font-size: 20px;
         color: white;
     }
 
@@ -44,5 +45,46 @@ export const StyledAnalyser = styled.div`
     }
     .black{
         background-color: #000000;
+    }
+
+    @media (min-width: 768px) and (max-width: 1150px){
+        margin-top: 10px;
+
+        > h3{
+            font-size: 20px;
+        }
+
+        .statistics{
+            gap: 30px;
+        }
+    }
+
+    @media (max-width: 767px){
+        margin-top: 10px;
+
+        > h3{
+            font-size: 18px;
+        }
+
+        .statistics{
+            gap: 20px;
+        }
+
+        .statistics > div{
+            gap: 5px;
+        }
+
+        .statistics > div > label{
+            font-size: 14px;
+        }
+
+        .statistic-square{
+            width: 30px;
+            height: 30px;
+        }
+
+        > p{
+            font-size: 12px;
+        }
     }
 `

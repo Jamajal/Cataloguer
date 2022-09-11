@@ -9,11 +9,12 @@ export const StyledCardField = styled.div`
     align-items: center;
     gap: 10px;
 
-    overflow: auto;
+    @media (max-width: 767px){
+        flex-direction: row;
 
-    scrollbar-width: none;
-
-    ::-webkit-scrollbar {
-        width: 0;
+        ::-webkit-scrollbar{
+            width: 100%;
+            height: 5px;
+        }
     }
 `

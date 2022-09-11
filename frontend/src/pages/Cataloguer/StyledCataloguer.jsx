@@ -26,25 +26,104 @@ export const StyledCataloguer = styled.div`
     }
 
     main > .right-side{
-        align-items: center;
+        height: 100%;
         width: 30%;
+        align-items: center;
+    }
+    
+    .filter-button-box{
+        width: 100%;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
     }
 
-    main > .right-side > button{
-        width: 70%;
+    .game-screen{
+        height: 100%;
+        width: 100%;
+    }
 
-        padding: 5px 10px;
-        margin-bottom: 20px;
-        
-        font-weight: 700;
-        font-size: 20px;
+    .card-field-box{
+        width: 100%;
+        overflow: auto;
 
-        color: white;
-        background-color: #E81538;
+        scrollbar-width: none;
 
-        border: none;
-        border-radius: 10px;
+        ::-webkit-scrollbar {
+            width: 0;
+        }
+    }
 
-        cursor: pointer;
+    .mobile-only{
+        display: none;
+    }
+
+    @media (min-width: 768px) and (max-width: 1150px){
+        main > .right-side > button{
+            width: 55%;
+
+            padding: 3px 5px;
+            
+            font-size: 16px;
+
+            background-color: #E81538;
+
+            border-radius: 7px;
+        }
+    }
+
+    @media (max-width: 767px){
+        height: auto;
+
+        main{
+            flex-direction: column;
+            justify-content: center;
+            gap: 0;
+        }
+
+        main > div{
+            padding-top: 10px;
+        }
+
+        main > .left-side{
+            gap: 10px;
+        }
+
+        main > .right-side{
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .desk-tablet-only{
+            display: none;
+        }
+
+        .mobile-only{
+            display: flex;
+            justify-content: center;
+        }
+
+        .card-field-left{
+            flex-direction: row;
+            overflow: auto;
+
+            ::-webkit-scrollbar{
+                height: 3px;
+            }
+
+            ::-webkit-scrollbar-track{
+                background-color: rgba(0,0,0,0.5);
+                border-radius: 20px;
+            }
+
+            ::-webkit-scrollbar-thumb{
+                background-color: #E81538;
+                border-radius: 20px;
+            }
+        }
+
+        .game-screen{
+            height: 500px;
+        }
     }
 `

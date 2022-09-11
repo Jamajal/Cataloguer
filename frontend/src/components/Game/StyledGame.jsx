@@ -19,4 +19,8 @@ export const StyledGame = style.div`
     iframe{
         width: 100%;
     }
+
+    /* @media (max-width: 767px){
+        iframe > 
+    } */
 `
