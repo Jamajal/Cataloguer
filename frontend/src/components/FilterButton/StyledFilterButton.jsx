@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const StyledFilterButton = styled.button`
-    width: 70%;
+    width: 80%;
 
     padding: 4px 10px;
     

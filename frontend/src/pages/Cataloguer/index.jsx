@@ -13,6 +13,26 @@ import { StyledCataloguer } from './StyledCataloguer'
     quais estão aparecendo utilizando classes com display: none. Os nomes dessas classe
     são tipo screen-only, sendo screen as telas em que o elemento irá aparecer
 */
+/* 
+export default function Cataloguer(){
+    return(
+        <StyledCataloguer>
+            <Bar />
+            <Header />
+            <main>
+                <div className="left-side">
+                    <Game />
+                    <Analyser />
+                </div>
+                <div className="right-side">
+                    <CardField />
+                </div>
+            </main>
+
+        </StyledCataloguer>
+    )
+}
+ */
 
 export default function Cataloguer(){
     return(
@@ -43,4 +63,4 @@ export default function Cataloguer(){
            </main>
         </StyledCataloguer>
     )
-}
+} 

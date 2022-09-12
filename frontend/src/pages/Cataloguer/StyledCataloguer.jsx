@@ -1,17 +1,40 @@
 import styled from 'styled-components'
 
+/* export const StyledCataloguer = styled.div`
+    width: 100%;
+    height: 90vh;
+    
+    main{
+        width: 100%;
+        display: flex;
+        padding: 0 20px;
+    }
+
+    .left-side{
+        width: 100%;
+    } 
+
+    .right-side{
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+` */
+
+
 export const StyledCataloguer = styled.div`
     width: 100%;
     height: 90vh;
 
     main{
-        padding: 0 20px;
+        padding: 0 10px 0 20px;
         height: 100%;
         width: 100%;
 
         display: flex;
         justify-content: space-between;
-        gap: 20px;
+        gap: 10px;
     }
 
     main > div{
@@ -47,6 +70,9 @@ export const StyledCataloguer = styled.div`
         width: 100%;
         overflow: auto;
 
+        display: flex;
+        justify-content: center;
+
         scrollbar-width: none;
 
         ::-webkit-scrollbar {
@@ -78,7 +104,7 @@ export const StyledCataloguer = styled.div`
         main{
             flex-direction: column;
             justify-content: center;
-            gap: 0;
+            gap: 10px;
         }
 
         main > div{
