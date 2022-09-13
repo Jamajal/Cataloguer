@@ -57,4 +57,80 @@ export const StyledCard = styled.div`
         font-size: 16px;
         color: white;
     }
+
+    @media (min-width: 768px) and (max-width: 1150px){
+        .name > p{
+            font-size: 12px;
+            padding-left: 3px;
+        }
+
+        .card-info{
+            margin-top: 7px;
+
+            font-size: 11px;
+        }
+
+        .card-info > p > span{
+            font-size: 18px;
+        }
+
+        .card-info > .squares{
+            margin: 8px 0 15px;
+        }
+
+        .card-info > .squares > .first-part{
+            display: flex;
+            gap: 7px;
+            margin-right: 15px;
+        }
+
+        .square{
+            width: 17px;
+            height: 17px;
+        }
+
+        > .result{
+            gap: 8px;
+    
+            font-size: 14px;
+        }
+    }
+
+    @media (max-width: 767px){
+        .name > p{
+            font-size: 10px;
+            padding-left: 3px;
+        }
+
+        .card-info{
+            margin-top: 5px;
+    
+            font-size: 9px;
+        }
+
+        .card-info > p > span{
+            font-size: 15px;
+        }
+
+        .card-info > .squares{
+            margin: 5px 0 10px;
+        }
+
+        .card-info > .squares > .first-part{
+            display: flex;
+            gap: 5px;
+            margin-right: 10px;
+        }
+
+        .square{
+            width: 15px;
+            height: 15px;
+        }
+
+        > .result{
+            gap: 5px;
+    
+            font-size: 12px;
+        }
+    }
 `
