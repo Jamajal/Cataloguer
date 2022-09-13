@@ -1,10 +1,12 @@
 const axios = require('axios')
+const DatabaseConnector = require('../data/DatabaseConnector')
 
 class DoubleResultsManager {
     constructor() {
         this.axios = axios;
         this.lastId = ""
         this.lastData = null
+        this.dbContext = null
     }
 
     async getLastDoubleResult() {
@@ -36,6 +38,8 @@ class DoubleResultsManager {
 
     async saveLastResult() {
         console.log("saving results")
+        this.dbContext = new DatabaseConnector();
+        this.dbContext.insertInResults(this.lastData['color'])
     }
 
     async waitToDo() {
