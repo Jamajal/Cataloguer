@@ -1,29 +1,34 @@
 import { StyledCard } from './StyledCard'
 
-export default function Card(){
-    return(
+function renderSquare(item) {
+    let className = "square"
+    if (item == 1) {
+        className = "redSquare";
+    } else if (item == 2) {
+        className = "blackSquare"
+    }
+    return <div className={className} />
+}
+export default function Card({ props }) {
+    return (
         <StyledCard>
             <div className="name">
-                <p>6 cores - Minoria</p>
+                <p>{props.name}</p>
                 <hr />
             </div>
             <div className="card-info">
-                <p><span>90,53%</span> de assertividade</p>
+                <p><span>{props.precision.toFixed(2)}</span>% de assertividade</p>
                 <div className="squares">
                     <div className="first-part">
-                        <div className="square" />
-                        <div className="square" />
-                        <div className="square" />
-                        <div className="square" />
-                        <div className="square" />
+                        {props.match.map((item) => (renderSquare(item)))}
                     </div>
-                    <div className="square" />
+                    {renderSquare(props.win)}
                 </div>
             </div>
             <div className="result">
-                <p>11 wins</p>
+                <p>{props.showWins} wins</p>
                 <p>-</p>
-                <p>2 loses</p>
+                <p>{props.showLoss} loss</p>
             </div>
         </StyledCard>
     )

@@ -34,8 +34,8 @@ export default function Cataloguer(){
 }
  */
 
-export default function Cataloguer(){
-    return(
+export default function Cataloguer() {
+    return (
         <StyledCataloguer>
             <Bar />
             <main>
@@ -45,7 +45,7 @@ export default function Cataloguer(){
                         <Game />
                     </div>
                     <div className="mobile-only card-field-left">
-                        <CardField />
+                        <CardField galeFilters="2gale" precisionFilters="20" />
                     </div>
                     <Analyser />
                 </div>
@@ -54,13 +54,13 @@ export default function Cataloguer(){
                         <FilterButton />
                     </div>
                     <div className="desk-tablet-only card-field-box">
-                        <CardField />
+                        <CardField galeFilters="2gale" precisionFilters="20" />
                     </div>
                     <div className="mobile-only game-screen">
                         <Game />
                     </div>
                 </div>
-           </main>
+            </main>
         </StyledCataloguer>
     )
 } 

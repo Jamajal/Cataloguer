@@ -7,6 +7,7 @@ class DatabaseConnector {
             console.log("Connected!");
         });
     }
+
     insertInResults(color) {
         var query = `INSERT INTO  u522484614_db_catalogador.double_last_results (color) VALUES (${color})`;
         this.con.query(query, function (err, result) {

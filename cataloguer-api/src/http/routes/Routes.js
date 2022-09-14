@@ -23,6 +23,4 @@ class ApiRoutes extends BaseRoute {
     }
 }
 
-
-
 module.exports = ApiRoutes

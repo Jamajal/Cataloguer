@@ -44,12 +44,21 @@ export const StyledCard = styled.div`
     .square{
         width: 25px;
         height: 25px;
-
         border-radius: 3px;
-
         background-color: gray;
     }
-
+    .redSquare{
+        width: 25px;
+        height: 25px;
+        border-radius: 3px;
+        background-color: red;
+    }
+    .blackSquare{
+        width: 25px;
+        height: 25px;
+        border-radius: 3px;
+        background-color: black;
+    }
     > .result{
         display: flex;
         gap: 10px;
