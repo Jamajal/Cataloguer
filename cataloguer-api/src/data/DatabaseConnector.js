@@ -13,6 +13,7 @@ class DatabaseConnector {
             return res;
         }).then(result => {
             return result[0]
+
         }).catch(err => {
             console.log(err); // any of connection time or query time errors from above
         });

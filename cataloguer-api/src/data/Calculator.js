@@ -27,9 +27,6 @@ class PrecisionCalculator {
             var count2 = 0
             while (count2 < splitedVector.length) {
                 if (JSON.stringify(splitedVector[count2]) === JSON.stringify(element['match'])) {
-                    console.log(splitedVector[count2])
-                    console.log(element['match'])
-                    console.log("----------------------")
                     if (element['win'] == results[matchSize + 1]) {
                         wins += 1
                     }

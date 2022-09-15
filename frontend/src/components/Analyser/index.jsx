@@ -1,8 +1,9 @@
 import { StyledAnalyser } from './StyledAnalyser'
 
-export default function Analyser(){
-    return(
+export default function Analyser() {
+    return (
         <StyledAnalyser>
+
             <h3>Analise Geral</h3>
             <div className="statistics">
                 <div>

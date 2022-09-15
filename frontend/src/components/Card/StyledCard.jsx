@@ -5,7 +5,7 @@ export const StyledCard = styled.div`
     background-color: #1A242D;
     border-radius: 10px;
     width: 100%;
-
+    font-family: Arial, Helvetica, sans-serif;
     .name > p{
         font-size: 14px;
         font-weight: 400;

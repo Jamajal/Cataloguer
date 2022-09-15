@@ -1,9 +1,9 @@
 import style from 'styled-components'
 
 export const StyledGame = style.div`
-    height: 100%;
+    height: 95%;
     width: 100%;
-
+    margin-top: 20px;
     padding: 10px;
     background-color: #1A242D;
 

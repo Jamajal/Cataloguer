@@ -77,6 +77,7 @@ export const StyledHeader = styled.header`
 `
  */
 export const StyledHeader = styled.header`
+    font-family: Arial, Helvetica, sans-serif;
     padding-bottom: 20px;
     width: 100%;
 

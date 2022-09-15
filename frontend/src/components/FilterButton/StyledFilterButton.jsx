@@ -2,7 +2,8 @@ import styled from 'styled-components'
 
 export const StyledFilterButton = styled.button`
     width: 80%;
-
+    font-family: Arial, Helvetica, sans-serif;
+	
     padding: 4px 10px;
     
         

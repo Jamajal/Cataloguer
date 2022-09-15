@@ -2,11 +2,6 @@ import { StyledCardField } from './StyledCardField'
 import Card from '../Card'
 import api from '../../http/api'
 
-async function getEstrategies() {
-    const response = await api.get("/getstrategies");
-    console.log(response.data)
-}
-
 async function calculatePrecision(item, selectedGales) {
     item.precision = 0
     if (selectedGales == 'noGales') {
@@ -38,11 +33,10 @@ function filterCards(items, precisionFilters) {
     return filteredItems
 }
 export default function CardField(props) {
-    const teste = [{ name: "4 cores vvvv- p", match: ["1", "1", "1", "1"], wins: 150, loss: 10, winsG1: 24, winsG2: 33, win: "2" },
-    { name: "4 cores vvvv- p", match: ["1", "1", "1", "1"], wins: 100, loss: 10, winsG1: 24, winsG2: 33, win: "2" },
-    { name: "4 cores vvvv- p", match: ["1", "1", "1", "1"], wins: 200, loss: 10, winsG1: 24, winsG2: 33, win: "2" },
-    { name: "4 cores vvvv- p", match: ["1", "1", "1", "1"], wins: 100, loss: 10, winsG1: 24, winsG2: 33, win: "2" },
-    { name: "4 cores vvvv- p", match: ["1", "1", "1", "1"], wins: 540, loss: 10, winsG1: 24, winsG2: 33, win: "2" }];
+    const teste = [{ name: "4 cores vvvv- p", match: ["1", "1", "1", "1"], wins: 80, loss: 56, winsG1: 23, winsG2: 2, win: "2" },
+    { name: "4 cores alternado", match: ["1", "2", "1", "2"], wins: 89, loss: 23, winsG1: 27, winsG2: 13, win: "1" },
+    { name: "4 cores pppp - v", match: ["2", "2", "2", "2"], wins: 88, loss: 12, winsG1: 29, winsG2: 16, win: "1" },
+    { name: "3 cores vvv - p", match: ["1", "1", "1"], wins: 98, loss: 10, winsG1: 11, winsG2: 32, win: "2" }];
     teste.map((item) => calculatePrecision(item, props.galeFilters));
     const filteredItems = filterCards(teste, props.precisionFilters)
     return (
