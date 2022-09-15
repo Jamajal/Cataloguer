@@ -1,6 +1,5 @@
 import FilterButton from '../FilterButton'
 import React, { useState } from 'react';
-import { StyledHeader } from './StyledHeader';
 /* 
 export default function Header(){
     return(
