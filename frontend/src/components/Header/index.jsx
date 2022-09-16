@@ -1,4 +1,5 @@
 import FilterButton from '../FilterButton'
+
 /* 
 export default function Header(){
     return(
@@ -33,13 +34,18 @@ export default function Header(){
     )
 }
  */
-
+import React, { useState } from 'react';
 export default function Header() {
+    const { assertiveness, setAssertiveness } = useState("90")
+
     return (
         <StyledHeader>
             <div className="filter">
                 <div className="selects">
-                    <select name="percent" id="percent">
+                    <select
+                        value={assertiveness}
+                        onChange={setAssertiveness(e.target.value)}
+                        id="percent">
                         <option value="90">MAIS DE 90%</option>
                         <option value="80">MAIS DE 80%</option>
                         <option value="70">MAIS DE 70%</option>

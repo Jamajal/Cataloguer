@@ -7,6 +7,8 @@ import FilterButton from '../../components/FilterButton'
 
 import { StyledCataloguer } from './StyledCataloguer'
 
+import { useState } from 'react'
+
 /* 
     Ao diminuir o layout para mobile, eu queria fazer trocas de containers para outro
     a ideia que tive foi de criar ementos iguais em diferentes containers e controlar
@@ -35,9 +37,11 @@ export default function Cataloguer(){
  */
 
 export default function Cataloguer() {
+    const [ assertiveness, setAssertiveness ] = useState("90")
+    const [ latest, setLatest] = useState("10")
+    const [ gales, setGales ] = useState("nogale")
 
     return (
-
         <StyledCataloguer>
             <Bar />
             <main>
@@ -45,21 +49,32 @@ export default function Cataloguer() {
                     {/* <Header /> */}
                     <div className="filter">
                         <div className="selects">
-                            <select name="percent" id="percent">
+                            <select 
+                            value={assertiveness}
+                            onChange={e => setAssertiveness(e.target.value)} 
+                            id="percent"
+                            >
                                 <option value="90">MAIS DE 90%</option>
                                 <option value="80">MAIS DE 80%</option>
                                 <option value="70">MAIS DE 70%</option>
                                 <option value="50">MAIS DE 50%</option>
                                 <option value="40">MAIS DE 40%</option>
                             </select>
-                            <select name="latest" id="latest">
+                            <select 
+                            value={latest}
+                            onChange={e => setLatest(e.target.value)}
+                            id="latest"
+                            >
                                 <option value="10">ÚLTIMOS 10 MINUTOS</option>
                                 <option value="30">ÚLTIMOS 30 MINUTOS</option>
                                 <option value="60">ÚLTIMA HORA</option>
                                 <option value="180">ÚLTIMAS 3 HORAS</option>
                                 <option value="2880">ÚLTIMO DIA</option>
                             </select>
-                            <select name="gales" id="gales">
+                            <select value={gales}
+                            onChange={e => setGales(e.target.value)} 
+                            id="gales"
+                            >
                                 <option value="nogale">SEM GALE</option>
                                 <option value="1gale">GALE 1</option>
                                 <option value="2gale">GALE 2</option>
@@ -73,7 +88,7 @@ export default function Cataloguer() {
                         <Game />
                     </div>
                     <div className="mobile-only card-field-left">
-                        <CardField galeFilters={"2gale"} precisionFilters="20" />
+                        <CardField galeFilters={gales} precisionFilters={latest} />
                     </div>
                     <Analyser />
                 </div>
@@ -82,7 +97,7 @@ export default function Cataloguer() {
                         <FilterButton />
                     </div>
                     <div className="desk-tablet-only card-field-box">
-                        <CardField galeFilters="2gale" precisionFilters="20" />
+                        <CardField galeFilters={gales} precisionFilters={latest} />
                     </div>
                     <div className="mobile-only game-screen">
                         <Game />
