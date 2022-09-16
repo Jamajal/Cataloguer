@@ -51,7 +51,8 @@ export const StyledCard = styled.div`
         width: 25px;
         height: 25px;
         border-radius: 3px;
-        background-color: red;
+        background-color: #E81538;
+        ;
     }
     .blackSquare{
         width: 25px;
