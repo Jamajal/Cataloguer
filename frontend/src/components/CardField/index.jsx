@@ -45,15 +45,24 @@ async function getEstrategies() {
 
 export default function CardField(props) {
     const [estrategies, setEstrategies] = useState()
-    const [filteredItems, filterItems] = useState()
-    var data = getEstrategies()
+    //const [filteredItems, filterItems] = useState()
+    /* var data = getEstrategies()
     data.then(function (result) {
         setEstrategies(result)
         return result;
-    });
+    }); */
+
     // filterItems(filterCards(estrategies, props.precisionFilters))
     // estrategies.map(item => calculatePrecision(item, props.galeFilters));
     // const filteredItems = filterCards(estrategies, props.precisionFilters)
+
+    const teste = [{ name: "4 cores vvvv- p", match: ["1", "1", "1", "1"], wins: 80, loss: 56, winsG1: 23, winsG2: 2, win: "2" },
+    { name: "4 cores alternado", match: ["1", "2", "1", "2"], wins: 89, loss: 23, winsG1: 27, winsG2: 13, win: "1" },
+    { name: "4 cores pppp - v", match: ["2", "2", "2", "2"], wins: 88, loss: 12, winsG1: 29, winsG2: 16, win: "1" },
+    { name: "3 cores vvv - p", match: ["1", "1", "1"], wins: 98, loss: 10, winsG1: 11, winsG2: 32, win: "2" }];
+    teste.map((item) => calculatePrecision(item, props.galeFilters));
+    teste.map(item => calculatePrecision(item, props.galeFilters));
+    const filteredItems = filterCards(teste, props.precisionFilters)
     return (
         <StyledCardField>
             {filteredItems.map((item, index) => (<Card props={item} />))}
