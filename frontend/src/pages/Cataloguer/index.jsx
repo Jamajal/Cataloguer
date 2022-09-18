@@ -4,6 +4,8 @@ import Analyser from '../../components/Analyser'
 import CardField from '../../components/CardField'
 import Game from '../../components/Game'
 import FilterButton from '../../components/FilterButton'
+import Login from '../Login'
+import RegistrateCard from '../RegistrateCard'
 
 import { StyledCataloguer } from './StyledCataloguer'
 
@@ -15,26 +17,6 @@ import { useState } from 'react'
     quais estão aparecendo utilizando classes com display: none. Os nomes dessas classe
     são tipo screen-only, sendo screen as telas em que o elemento irá aparecer
 */
-/* 
-export default function Cataloguer(){
-    return(
-        <StyledCataloguer>
-            <Bar />
-            <Header />
-            <main>
-                <div className="left-side">
-                    <Game />
-                    <Analyser />
-                </div>
-                <div className="right-side">
-                    <CardField />
-                </div>
-            </main>
-
-        </StyledCataloguer>
-    )
-}
- */
 
 export default function Cataloguer() {
     const [ assertiveness, setAssertiveness ] = useState("90")
@@ -42,11 +24,11 @@ export default function Cataloguer() {
     const [ gales, setGales ] = useState("nogale")
 
     return (
-        <StyledCataloguer>
+        <StyledCataloguer> 
             <Bar />
             <main>
                 <div className="left-side">
-                    {/* <Header /> */}
+                    
                     <div className="filter">
                         <div className="selects">
                             <select 
