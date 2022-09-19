@@ -3,13 +3,12 @@ import { StyledAnalyser } from './StyledAnalyser'
 import { useState } from 'react'
 
 export default function Analyser() {
-    const [ redSquare, setRedSquare ] = useState(0)
-    const [ blackSquare, setBlackSquare ] = useState(0)
-    const [ whiteSquare, setWhiteSquare ] = useState(0)
-    const [ allSquare, setAllSquare ] = useState(0)
-    const [ lastWhite, setLastWhite ] = useState(0)
+    const [redSquare, setRedSquare] = useState(0)
+    const [blackSquare, setBlackSquare] = useState(0)
+    const [whiteSquare, setWhiteSquare] = useState(0)
+    const [allSquare, setAllSquare] = useState(0)
+    const [lastWhite, setLastWhite] = useState(0)
 
-    console.log(document.getElementsByTagName("StyledCardField"))
 
     return (
         <StyledAnalyser>
