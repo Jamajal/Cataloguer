@@ -1,28 +1,26 @@
 const Hapi = require('hapi')
-const Routes = require('./src/http/routes/Routes')
-
-
-const app = new Hapi.Server({
-    port: 5000,
-    routes: {
-        cors: {
-            origin: ['*'], // an array of origins or 'ignore'
-            headers: ['Accept', 'Authorization', 'Content-Type', 'If-None-Match', 'Accept-language'], // all default apart from Accept-language
-            additionalHeaders: ['cache-control', 'x-requested-with', 'Access-Control-Allow-Origin']
-        }
-    },
-})
-
-function mapRoutes(instance, methods) {
-    return methods.map(method => instance[method]())
-}
-
+const ApiRoutes = require('./src/http/routes/Routes')
+const express = require('express')
+const cors = require('cors')
+const app = express();
+app.use(cors())
 async function main() {
-    app.route([
-        ...mapRoutes(new Routes(), Routes.methods())
-    ])
-    await app.start()
-    console.log("Servidor rodando em", app.port)
-    return app
+    const routes = new ApiRoutes()
+    app.get('/getestrategies', async (req, res) => {
+        const result = await routes.list(req)
+        console.log(result)
+        res.send(result)
+    })
+    app.post('/createstrategy', async (req, res) => {
+        const result = await routes.create(req)
+        res.send(result)
+    })
+    app.get('/general', async (req, res) => {
+        const result = await routes.getGeneral(req)
+        res.send(result)
+    })
+    app.listen(5000, () =>
+        console.log(`Example app listening on port ${5000}!`),
+    );
 }
 main()

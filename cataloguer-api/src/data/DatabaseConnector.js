@@ -43,9 +43,23 @@ class DatabaseConnector {
         }).then(result => {
             return result[0]
         }).catch(err => {
-            console.log(err); // any of connection time or query time errors from above
+            console.log(err);
         });
     }
+
+    async createNewStrategy(strategy) {
+        var query = `INSERT INTO u522484614_db_catalogador.estrategies (name, type, estrategy) VALUES ('${strategy.name}', '${strategy.type}', '${strategy.estrategy}')`
+        return await this.con.then(conn => {
+            const res = conn.query(query);
+            return res;
+        }).then(result => {
+            return result[0]
+        }).catch(err => {
+            console.log(err);
+        });
+    }
+
+
 
 }
 module.exports = DatabaseConnector;

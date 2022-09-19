@@ -56,51 +56,29 @@ async function calculatePrecision(item, selectedGales) {
     }
 }
 
-function filterCards(items, precisionFilters) {
-    var filteredItems = []
-
-    items.forEach(element => {
-        if (element.precision >= precisionFilters) {
-            filteredItems.push(element)
-        }
-    });
-    return filteredItems
-}
-
 async function getEstrategies() {
-    const data = api.get("/getestrategies?minutes=20").then((data) => {
-        return data.data;
-    })
-    var results = data.then(function (result) {
-        return result;
-    });
-    return results;
+    var data = await api.get("/getestrategies?minutes=20")
+    return data.data;
 }
 
 import React, { useState, useEffect } from 'react';
 
 export default function CardField(props) {
-    const [estrategies, setEstrategies] = useState([])
-    const [filteredItems, setFiltered] = useState([])
-    const filteredCards = []
-    var data = getEstrategies()
-    useEffect(() => {
-        data.then(function (result) {
-            result.map((item) => calculatePrecision(item, props.galeFilters));
-            console.log("DATA", result)
-            setEstrategies(result)
-        })
-    }, [])
-    // estrategies.map((item) => calculatePrecision(item, props.galeFilters));
-    console.log("ESTRATEGIES", estrategies)
-    // var teste = [{ name: "4 cores vvvv- p", match: ["1", "1", "1", "1"], wins: 2000, loss: 56, winsG1: 23, winsG2: 2, win: "2" },
-    // { name: "4 cores alternado", match: ["1", "2", "1", "2"], wins: 89, loss: 23, winsG1: 27, winsG2: 13, win: "1" },
-    // { name: "4 cores pppp - v", match: ["2", "2", "2", "2"], wins: 88, loss: 12, winsG1: 29, winsG2: 16, win: "1" },
-    // { name: "3 cores vvv - p", match: ["1", "1", "1"], wins: 98, loss: 10, winsG1: 11, winsG2: 32, win: "2" }];
+    // const [estrategies, setEstrategies] = useState([])
+    // const data = getEstrategies()
+    // useEffect(() => {
+    //     data.then(function (result) {
+    //         result.map((item) => calculatePrecision(item, props.galeFilters));
+    //         setEstrategies(result)
+    //     })
+    // }, [])
     return (
         <StyledCardField>
-            {estrategies.map((item, index) => (<Card props={item} />))}
-            {/* {filterCards(teste, props.filterCards)} */}
+            {props.estrategies.map((item, index) => {
+
+                return <Card props={item} />
+
+            })}
         </StyledCardField>
     )
 }
