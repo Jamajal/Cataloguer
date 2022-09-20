@@ -9,9 +9,9 @@ export default function Analyser(props) {
     const [lastWhite, setLastWhite] = useState(0)
     useEffect(() => {
         setAllSquare(props.props.whiteCounts + props.props.redCounts + props.props.blackCounts)
-        setRedSquare(props.props.redCounts / allSquare)
-        setBlackSquare(props.props.blackCounts / allSquare)
-        setWhiteSquare(props.props.whiteCounts / allSquare)
+        setRedSquare((props.props.redCounts / allSquare) * 100)
+        setBlackSquare((props.props.blackCounts / allSquare) * 100)
+        setWhiteSquare((props.props.whiteCounts / allSquare) * 100)
     }, [])
     console.log(props.props)
     return (
@@ -20,15 +20,15 @@ export default function Analyser(props) {
             <div className="statistics">
                 <div>
                     <div className="statistic-square red" />
-                    <label>{redSquare * 100}%</label>
+                    <label>{redSquare}%</label>
                 </div>
                 <div>
                     <div className="statistic-square white" />
-                    <label>{whiteSquare * 100}%</label>
+                    <label>{whiteSquare}%</label>
                 </div>
                 <div>
                     <div className="statistic-square black" />
-                    <label>{blackSquare * 100}</label>
+                    <label>{blackSquare}%</label>
                 </div>
             </div>
             {/* <p>O último branco foi a 23 rodadas</p> */}
