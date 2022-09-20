@@ -18,7 +18,7 @@ export default function Login(){
                 </form>
                 <div className="problems">
                     <p>Esqueci minha senha</p>
-                    <p>Não sou cadastrado</p>
+                    <p>Não sou cadastrado. <span>Criar conta</span></p>
                 </div>
             </div>
         </StyledLogin>

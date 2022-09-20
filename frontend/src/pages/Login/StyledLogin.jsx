@@ -29,15 +29,15 @@ export const StyledLogin = styled.section`
 
     
     .login-box{
-        padding: 30px 30px;
+        padding: 30px;
         
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        gap: 40px;
-
-        height: 60%;
+        gap: 30px;
+        
+        height: auto;
+        width: 40%;
         
         background-color: #222;
         border: none;
@@ -45,11 +45,13 @@ export const StyledLogin = styled.section`
     }
 
     .login-box > h2{
-        font-size: 28px;
+        font-size: 30px;
         color: white;
     }
     
     .login-box > form{
+        width: 100%;
+
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -57,6 +59,8 @@ export const StyledLogin = styled.section`
     }
 
     .login-box > form > input{
+        width: 80%;
+
         font-family: Arial, Helvetica, sans-serif;
         padding: 4px 10px;
         font-weight: 500;
@@ -65,13 +69,12 @@ export const StyledLogin = styled.section`
         background-color: transparent;
         border: none;
         border-bottom: 1px solid white;
-        
     }
 
     .login-box > form > input[type="button"]{
-        width: 65%;
-        margin-top: 10px;
-        padding: 5px 10px;
+        width: 50%;
+        margin-top: 20px;
+        padding: 8px 10px;
 
         font-weight: 700;
         font-size: 16px;
@@ -83,6 +86,7 @@ export const StyledLogin = styled.section`
     }
 
     .login-box > .problems{
+        
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -96,7 +100,48 @@ export const StyledLogin = styled.section`
         cursor: pointer;
     }
 
+    .login-box > .problems > p > span{
+        font-weight: 700;
+        color: #E81538;
+    }
+
+    .login-box > .problems > p > span:hover{
+        text-shadow: 0 0 5px #E81538;
+    }
+
     .login-box > .problems > p:hover{
-        text-shadow: 0 0 3px white;
+    }
+
+    @media (max-width: 767px){
+        .login-box{
+            width: 70%;
+            height: 50%;
+            padding: 0 20px;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .login-box > h2{
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .login-box > form > input{
+            width: 90%;
+            font-size: 12px;
+        }
+
+        .login-box > form > input[type="button"]{
+            margin-top: 10px;
+            width: 45%;
+        }
+
+        .login-box > .problems > p{
+            font-size: 10px;
+        }
+
+        .login-box > .problems > p:hover{
+            text-shadow: 0 0 5px white;
+        }
     }
 `
