@@ -13,7 +13,6 @@ export default function Analyser(props) {
         setBlackSquare((props.props.blackCounts / allSquare) * 100)
         setWhiteSquare((props.props.whiteCounts / allSquare) * 100)
     }, [])
-    console.log(props.props)
     return (
         <StyledAnalyser>
             <h3>Analise Geral</h3>

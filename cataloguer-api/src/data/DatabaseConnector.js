@@ -1,3 +1,4 @@
+const { count } = require('console');
 const { promisify } = require('util')
 
 class DatabaseConnector {
@@ -6,6 +7,7 @@ class DatabaseConnector {
         this.con = this.mySQL.createConnection({ host: "sql804.main-hosting.eu", user: "u522484614_dev", password: "Catalogador123" });
     }
 
+
     async getResultsByFilter(minutesFilter) {
         var query = "SELECT COUNT(*) FROM u522484614_db_catalogador.double_last_results";
         var counter = await this.con.then(conn => {
@@ -13,15 +15,17 @@ class DatabaseConnector {
             return res;
         }).then(result => {
             return result[0]
-
         }).catch(err => {
+
             console.log(err); // any of connection time or query time errors from above
         });
+
         counter = counter[0]['COUNT(*)']
         counter = counter - minutesFilter
         var query = `SELECT color FROM u522484614_db_catalogador.double_last_results WHERE id > ${counter} order by ID DESC`;
         var arrayResults = await this.con.then(conn => {
             const res = conn.query(query);
+            conn.end()
             return res;
         }).then(result => {
             return result[0]
@@ -39,6 +43,8 @@ class DatabaseConnector {
         var query = "SELECT * FROM u522484614_db_catalogador.estrategies"
         return await this.con.then(conn => {
             const res = conn.query(query);
+            conn.end()
+
             return res;
         }).then(result => {
             return result[0]
@@ -51,6 +57,7 @@ class DatabaseConnector {
         var query = `INSERT INTO u522484614_db_catalogador.estrategies (name, type, estrategy) VALUES ('${strategy.name}', '${strategy.type}', '${strategy.estrategy}')`
         return await this.con.then(conn => {
             const res = conn.query(query);
+            conn.end()
             return res;
         }).then(result => {
             return result[0]

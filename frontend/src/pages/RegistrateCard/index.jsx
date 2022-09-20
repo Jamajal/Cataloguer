@@ -1,11 +1,12 @@
 import { StyledRegistrateCard } from './StyledRegistrateCard'
 import { useState } from 'react'
-
+import { Link } from 'react-router-dom';
+import api from '../../http/api'
 export default function RegistrateCard() {
     const [strategy, setStrategy] = useState("Normal")
+    const [textName, setTextName] = useState("")
     const [squareNumber, setSquareNumber] = useState(1)
     const [square1Color, setSquare1Color] = useState("gray");
-
     const changeColor = e => {
         const element = e.target
         const elementColor = element.style.backgroundColor
@@ -48,16 +49,51 @@ export default function RegistrateCard() {
         console.log(updateRenderedSquares)
     }
 
+
+
+    const handleSubmit = async e => {
+        e.preventDefault()
+        const squares = [...document.querySelector(".squares").children]
+        var squaresToDB = ""
+
+        squares.forEach(square => {
+            if (square.style.backgroundColor === "rgb(232, 21, 56)")
+                squaresToDB += "V "
+
+            else if (square.style.backgroundColor === "rgb(0, 0, 0)")
+                squaresToDB += "P "
+
+            else if (square.style.backgroundColor === "rgb(255, 255, 255)")
+                squaresToDB += "B "
+
+        })
+        const data = {
+            name: textName,
+            strategy: strategy.toLowerCase(),
+            squares: squaresToDB.slice(0, -1)
+        }
+
+        const response = await api.post(`/createstrategy?name=${data.name}&type=${data.strategy}&strategy=${data.squares}`)
+        alert(response.data.message)
+    }
+
     return (
+
         <StyledRegistrateCard>
-            <a href="/"><button>Voltar</button></a>
+            <Link to="/"><button>Voltar</button></Link>
             <div className="cadastrate-card-box">
-                <form method="POST" action="#">
-                    <input type="text" placeholder="Nome da Estratégia" />
+                <form method="POST" action="/">
+                    <input
+                        type="text"
+                        onChange={e => setTextName(e.target.value)}
+                        placeholder="Nome da Estratégia"
+                    />
+
                     <select
                         value={strategy}
                         onChange={e => setStrategy(e.target.value)}
-                        id="strategy">
+                        id="strategy"
+                    >
                         <option value="Normal">Normal</option>
                         {/* <option value="Minority">Minoria</option>
                         <option value="Majority">Maioria</option> */}
@@ -77,10 +113,23 @@ export default function RegistrateCard() {
                         <div className="square" style={{ backgroundColor: "#E81538" }} onClick={changeColor} />
                     </div>
                     <div className="square-number-controls">
-                        <button onClick={e => handleSquareNumber(e, square)} value="less">Diminuir</button>
-                        <button onClick={e => handleSquareNumber(e, square)} value="more">Adicionar</button>
+                        <button
+                            onClick={e => handleSquareNumber(e, square)}
+                            value="less"
+                        >Diminuir</button>
+                        <button
+                            onClick={e => handleSquareNumber(e, square)}
+                            value="more"
+                        >Adicionar</button>
                     </div>
-                    <input type="submit" value="Cadastrar" />
+
+
+                    <input
+                        type="submit"
+                        value="Cadastrar"
+                        onClick={e => handleSubmit(e)}
+                    />
+
                 </form>
             </div>
         </StyledRegistrateCard>
