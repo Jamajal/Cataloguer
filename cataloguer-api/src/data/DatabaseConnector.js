@@ -9,20 +9,7 @@ class DatabaseConnector {
 
 
     async getResultsByFilter(minutesFilter) {
-        var query = "SELECT COUNT(*) FROM u522484614_db_catalogador.double_last_results";
-        var counter = await this.con.then(conn => {
-            const res = conn.query(query);
-            return res;
-        }).then(result => {
-            return result[0]
-        }).catch(err => {
-
-            console.log(err); // any of connection time or query time errors from above
-        });
-
-        counter = counter[0]['COUNT(*)']
-        counter = counter - minutesFilter
-        var query = `SELECT color FROM u522484614_db_catalogador.double_last_results WHERE id > ${counter} order by ID DESC`;
+        var query = `SELECT color FROM u522484614_db_catalogador.double_last_results  order by ID DESC LIMIT ${minutesFilter}`;
         var arrayResults = await this.con.then(conn => {
             const res = conn.query(query);
             conn.end()

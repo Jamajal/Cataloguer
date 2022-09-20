@@ -21,50 +21,45 @@ async function calculatePrecision(item, selectedGales) {
     item.precision = 0
     item.showLoss = 0
     item.showWins = 0
+    var currency = item.currencyWins + item.currencyLoss + item.currencyWinsG1 + item.currencyWinsG2
     if (selectedGales == 'nogale') {
         console.log('noGale')
-        if (item.currencyLoss == 0) {
-            var currency = item.currencyWins
+        if (item.currencyLoss + item.currencyWinsG1 + item.currencyWinsG2 == 0) {
             if (currency != 0) {
                 item.precision = 100
             }
             else {
                 item.precision = 0
             }
-        } else {
-            item.precision = item.currencyWins / (item.currencyLoss + item.currencyWinsG1 + item.currencyWinsG2 + item.currencyWins) * 100
         }
+        item.precision = item.currencyWins / (item.currencyLoss + item.currencyWinsG1 + item.currencyWinsG2 + item.currencyWins) * 100
         item.showWins = item.currencyWins
         item.showLoss = item.currencyLoss + item.currencyWinsG1 + item.currencyWinsG2
     } else if (selectedGales == '1gale') {
         console.log('1GALE')
-        if (item.currencyLoss == 0) {
-            var currency = item.currencyWinsG1 + item.currencyWins
+        if (item.currencyLoss + item.currencyWinsG2 == 0) {
             if (currency != 0) {
                 item.precision = 100
             }
             else {
                 item.precision = 0
             }
-        } else {
-            item.precision = (item.currencyWins + item.currencyWinsG1) / (item.currencyLoss + item.currencyWinsG1 + item.currencyWinsG2 + item.currencyWins) * 100
         }
+        item.precision = (item.currencyWins + item.currencyWinsG1) / (item.currencyLoss + item.currencyWinsG1 + item.currencyWinsG2 + item.currencyWins) * 100
         item.showWins = item.currencyWinsG1 + item.currencyWins
         item.showLoss = item.currencyLoss + item.currencyWinsG2
     }
     else if (selectedGales == '2gale') {
         console.log('noGale')
         if (item.currencyLoss == 0) {
-            var currency = item.currencyWinsG1 + item.currencyWinsG2 + item.currencyWins
             if (currency != 0) {
                 item.precision = 100
             }
             else {
                 item.precision = 0
             }
-        } else {
-            item.precision = (item.currencyWins + item.currencyWinsG1 + item.currencyWinsG2) / (item.currencyLoss + item.currencyWinsG1 + item.currencyWinsG2 + item.currencyWins) * 100
         }
+        item.precision = (item.currencyWins + item.currencyWinsG1 + item.currencyWinsG2) / (item.currencyLoss + item.currencyWinsG1 + item.currencyWinsG2 + item.currencyWins) * 100
         item.showWins = item.currencyWinsG1 + item.currencyWinsG2 + item.currencyWins
         item.showLoss = item.currencyLoss
     } else {
@@ -74,12 +69,9 @@ async function calculatePrecision(item, selectedGales) {
     }
 }
 
-async function getAnalyserData() {
-    var data = await api.get("/general?minutes=20")
-    return data.data;
-}
-async function getEstrategies() {
-    var data = await api.get("/getestrategies?minutes=20")
+
+async function getEstrategies(time) {
+    var data = await api.get(`/getestrategies?minutes=${time}`)
     return data.data;
 }
 
@@ -95,31 +87,28 @@ function fillter(data, precision) {
 
 export default function Cataloguer() {
     const [assertiveness, setAssertiveness] = useState("90")
-    const [latest, setLatest] = useState("10")
+    const [latest, setLatest] = useState(10)
     const [gales, setGales] = useState("nogale")
     const [estrategies, setEstrategies] = useState([])
     const [saveEstrategies, setSaveEstrategies] = useState([])
-    const [analyser, setAnalyser] = useState([])
-    var data = getEstrategies()
-    var dataAnalyser = getAnalyserData()
+    var data = getEstrategies(latest)
     useEffect(() => {
         data.then(function (result) {
             setSaveEstrategies(result)
             result.map((item) => calculatePrecision(item, gales));
             setEstrategies(fillter(result, assertiveness))
         })
-        dataAnalyser.then(function (result) {
-            setAnalyser(result)
-        })
+
     }, [])
     const reset = () => {
-        data = getEstrategies()
-        dataAnalyser = getAnalyserData()
-        saveEstrategies.map((item) => calculatePrecision(item, gales));
-        setEstrategies(fillter(saveEstrategies, assertiveness));
-        dataAnalyser.then(function (result) {
-            setAnalyser(result)
+        data = getEstrategies(latest)
+        data.then(function (result) {
+            setSaveEstrategies(result)
+            result.map((item) => calculatePrecision(item, gales));
+            setEstrategies(fillter(result, assertiveness))
         })
+        // saveEstrategies.map((item) => calculatePrecision(item, gales));
+        // setEstrategies(fillter(saveEstrategies, assertiveness));
     }
     return (
         <StyledCataloguer>
@@ -170,7 +159,7 @@ export default function Cataloguer() {
                     <div className="mobile-only card-field-left">
                         <CardField galeFilters={gales} precisionFilters={assertiveness} estrategies={estrategies} />
                     </div>
-                    <Analyser props={analyser} />
+                    <Analyser props={latest} />
                 </div>
                 <div className="right-side">
                     <div className="desk-tablet-only filter-button-box">

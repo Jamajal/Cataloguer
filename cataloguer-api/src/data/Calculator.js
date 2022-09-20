@@ -7,10 +7,10 @@ class PrecisionCalculator {
         estrategies.forEach(element => {
             element['estrategy'] = element['estrategy'].replace(/V/g, 1);
             element['estrategy'] = element['estrategy'].replace(/P/g, 2);
+            element['estrategy'] = element['estrategy'].replace(/B/g, 0);
             element['estrategy'] = element['estrategy'].split(" ");
-            element['win'] = element['estrategy'].pop();
-            element['match'] = [...element['estrategy']]
-            element['match'].pop()
+            element['win'] = element['estrategy'][element['estrategy'].length - 1];
+            element['match'] = element['estrategy'].slice(0, -1)
         });
         estrategies.forEach(element => {
             var wins = 0
@@ -27,16 +27,19 @@ class PrecisionCalculator {
             var count2 = 0
             while (count2 < splitedVector.length) {
                 if (JSON.stringify(splitedVector[count2]) === JSON.stringify(element['match'])) {
-                    if (element['win'] == results[matchSize + 1]) {
+                    if (element['win'] == splitedVector[count2 + 1][matchSize - 1]) {
                         wins += 1
                     }
-                    else if (element['win'] == results[matchSize + 2]) {
+                    else if (element['win'] == splitedVector[count2 + 2][matchSize - 1]) {
+
                         winsG1 += 1
                     }
-                    else if (element['win'] == results[matchSize + 3]) {
+                    else if (element['win'] == splitedVector[count2 + 3][matchSize - 1]) {
+
                         winsG2 += 1
                     }
                     else {
+                        console.log(element['win'], "TEste ", splitedVector[count2 + 1][matchSize - 1])
                         loss += 1
                     }
                 }

@@ -64,20 +64,11 @@ async function getEstrategies() {
 import React, { useState, useEffect } from 'react';
 
 export default function CardField(props) {
-    // const [estrategies, setEstrategies] = useState([])
-    // const data = getEstrategies()
-    // useEffect(() => {
-    //     data.then(function (result) {
-    //         result.map((item) => calculatePrecision(item, props.galeFilters));
-    //         setEstrategies(result)
-    //     })
-    // }, [])
+
     return (
         <StyledCardField>
             {props.estrategies.map((item, index) => {
-
                 return <Card props={item} />
-
             })}
         </StyledCardField>
     )

@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview --port 443"
+    "preview": "vite preview --port 443",
+    "deploy": "aws s3 sync dist/ s3://blazehack --acl public-read"
   },
   "dependencies": {
     "axios": "^0.27.2",

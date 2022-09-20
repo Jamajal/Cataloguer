@@ -70,7 +70,7 @@ export default function RegistrateCard() {
         const data = {
             name: textName,
             strategy: strategy.toLowerCase(),
-            squares: squaresToDB.slice(0, -1)
+            squares: squaresToDB
         }
 
         const response = await api.post(`/createstrategy?name=${data.name}&type=${data.strategy}&strategy=${data.squares}`)
