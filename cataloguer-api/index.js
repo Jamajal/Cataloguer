@@ -19,8 +19,8 @@ async function main() {
         const result = await routes.getGeneral(req)
         res.send(result)
     })
-    app.listen(5000, () =>
-        console.log(`Example app listening on port ${5000}!`),
+    app.listen(80, () =>
+        console.log(`Example app listening on port ${80}!`),
     );
 }
 main()
