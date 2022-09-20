@@ -137,7 +137,7 @@ export default function Cataloguer() {
                                 <option value="30">ÚLTIMOS 30 MINUTOS</option>
                                 <option value="60">ÚLTIMA HORA</option>
                                 <option value="180">ÚLTIMAS 3 HORAS</option>
-                                <option value="2880">ÚLTIMO DIA</option>
+                                <option value="1440">ÚLTIMO DIA</option>
                             </select>
                             <select value={gales}
                                 onChange={e => setGales(e.target.value)}
