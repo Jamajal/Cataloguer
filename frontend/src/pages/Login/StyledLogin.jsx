@@ -29,12 +29,15 @@ export const StyledLogin = styled.section`
 
     
     .login-box{
-        padding: 30px 40px;
+        padding: 30px 30px;
         
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 30px;
+        justify-content: center;
+        gap: 40px;
+
+        height: 60%;
         
         background-color: #222;
         border: none;
@@ -42,6 +45,7 @@ export const StyledLogin = styled.section`
     }
 
     .login-box > h2{
+        font-size: 28px;
         color: white;
     }
     

@@ -28,7 +28,7 @@ export const StyledRegistrateCard = styled.section`
     }
 
     .cadastrate-card-box{
-        width: 35%;
+        
         padding: 30px;
         background-color: #222;
         border-radius: 20px;
@@ -71,7 +71,7 @@ export const StyledRegistrateCard = styled.section`
     }
 
     .squares{
-        position: relative;
+        width: 100%;
         display: flex;
         align-items: center;
         gap: 15px;
@@ -115,5 +115,27 @@ export const StyledRegistrateCard = styled.section`
     .cadastrate-card-box > form > input[type="submit"]:hover
     {
         box-shadow: 0 0 5px white;
+    }
+
+    @media (max-width: 767px){
+        .cadastrate-card-box{
+            width: 340px;
+        }
+
+        .squares{
+            gap: 10px;
+        }
+
+        .square{
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+
+        .square-number-controls > button,
+        .cadastrate-card-box > form > input[type="submit"]
+        {
+            font-size: 14px;
+        }
     }
 `

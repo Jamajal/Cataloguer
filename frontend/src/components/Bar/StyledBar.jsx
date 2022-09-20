@@ -35,5 +35,11 @@ export const StyledBar = style.header`
 
     @media (max-width: 767px){
         height: 30px;
+        justify-content: center;
+
+        > a{
+            font-size: 14px;
+            transform: translateX(20px);
+        }
     }
 `

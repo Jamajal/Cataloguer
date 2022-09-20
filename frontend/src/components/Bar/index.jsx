@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom'
 import { StyledBar } from './StyledBar'
 
 export default function Bar(){
     return (
         <StyledBar>
-            <a href="/login">Login</a>
-            <a href="new-card">Nova Estratégia</a>
+            <Link to="/login">Login</Link>
+            <Link to="new-card">Nova Estratégia</Link>
         </StyledBar>
     )
 }
