@@ -6,11 +6,11 @@ import RegistrateCard from './pages/RegistrateCard'
 
 function App() {
   return (
-      <Routes>
-        <Route exact path="/" element={<Cataloguer />}></Route>
-        <Route exact path="/login" element={<Login />}></Route>
-        <Route exact path="/new-card" element={<RegistrateCard />}></Route>
-      </Routes>
+    <Routes>
+      <Route exact path="/" element={<Cataloguer />}></Route>
+      <Route exact path="/login" element={<Login />}></Route>
+      <Route exact path="/new-card" element={<RegistrateCard />}></Route>
+    </Routes>
   )
 }
 

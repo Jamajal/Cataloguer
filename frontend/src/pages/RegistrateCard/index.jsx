@@ -95,8 +95,8 @@ export default function RegistrateCard() {
                         id="strategy"
                     >
                         <option value="Normal">Normal</option>
-                        {/* <option value="Minority">Minoria</option>
-                        <option value="Majority">Maioria</option> */}
+                        <option value="Minority">Minoria</option>
+                        <option value="Majority">Maioria</option>
                     </select>
                     <div className="squares">
                         {

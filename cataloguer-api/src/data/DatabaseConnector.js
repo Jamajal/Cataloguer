@@ -9,7 +9,7 @@ class DatabaseConnector {
 
 
     async getResultsByFilter(minutesFilter) {
-        var query = `SELECT color FROM u522484614_db_catalogador.double_last_results  order by ID DESC LIMIT ${minutesFilter}`;
+        var query = `SELECT color FROM u522484614_db_catalogador.double_last_results  order by ID ASC LIMIT ${minutesFilter}`;
         var arrayResults = await this.con.then(conn => {
             const res = conn.query(query);
             conn.end()
@@ -46,6 +46,23 @@ class DatabaseConnector {
             const res = conn.query(query);
             conn.end()
             return res;
+        }).then(result => {
+            return result[0]
+        }).catch(err => {
+            console.log(err);
+        });
+    }
+
+    async verifyUser(login, password) {
+        var query = `SELECT * FROM u522484614_db_catalogador.users_adm WHERE user = '${login}' AND password = '${password}'`
+        return await this.con.then(conn => {
+            const res = conn.query(query);
+            conn.end()
+            if (res === null) {
+                return res
+            } else {
+                return res
+            }
         }).then(result => {
             return result[0]
         }).catch(err => {

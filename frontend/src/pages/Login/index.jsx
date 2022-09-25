@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom'
 import { StyledLogin } from './StyledLogin'
 
-export default function Login(){
-    function handleClick(){
+export default function Login() {
+    function handleClick() {
         console.log("Clicou!")
     }
 
-    return(
+    return (
         <StyledLogin>
             <Link to="/"><button>Voltar</button></Link>
             <div className="login-box">
@@ -17,8 +17,8 @@ export default function Login(){
                     <input type="button" value="Entrar" onClick={handleClick} />
                 </form>
                 <div className="problems">
-                    <p>Esqueci minha senha</p>
-                    <p>Não sou cadastrado. <span>Criar conta</span></p>
+                    {/* <p>Esqueci minha senha</p>
+                    <p>Não sou cadastrado. <span>Criar conta</span></p> */}
                 </div>
             </div>
         </StyledLogin>

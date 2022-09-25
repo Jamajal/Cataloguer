@@ -1,7 +1,8 @@
 const { promisify } = require('util')
 const PrecisionCalculator = require('../../data/Calculator')
 const DatabaseConnector = require('../../data/DatabaseConnector')
-const joi = require('joi')
+const joi = require('joi');
+const { bool, boolean } = require('joi');
 class ApiRoutes {
     async list(req) {
         var queryFilters = req.query['minutes'];
@@ -37,8 +38,19 @@ class ApiRoutes {
             redCounts: results.filter(x => x === "1").length,
             blackCounts: results.filter(x => x === "2").length,
         }
-
         return generalReturn
+    }
+
+    async login(res) {
+        var user = res.body['user'];
+        var pass = res.body['password'];
+        var results = await new DatabaseConnector().verifyUser(user, pass);
+        console.log(results)
+        if (results.length == 0) {
+            return { message: false };
+        } else {
+            return { message: true };
+        }
     }
 }
 

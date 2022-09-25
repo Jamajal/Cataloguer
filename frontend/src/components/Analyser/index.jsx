@@ -6,20 +6,17 @@ async function getAnalyserData(time) {
     return data.data;
 }
 export default function Analyser(props) {
-    const [analyser, setAnalyser] = useState([])
     const [redSquare, setRedSquare] = useState(0)
     const [blackSquare, setBlackSquare] = useState(0)
     const [whiteSquare, setWhiteSquare] = useState(0)
-    const [allSquare, setAllSquare] = useState(0)
-    const [lastWhite, setLastWhite] = useState(0)
     const data = getAnalyserData(props.props)
+
     useEffect(() => {
         data.then(function (item) {
-            setAnalyser(item)
-            setAllSquare(analyser.whiteCounts + analyser.redCounts + analyser.blackCounts)
-            setRedSquare((analyser.redCounts / allSquare) * 100)
-            setBlackSquare((analyser.blackCounts / allSquare) * 100)
-            setWhiteSquare((analyser.whiteCounts / allSquare) * 100)
+            console.log(item)
+            setRedSquare((item.redCounts / (item.whiteCounts + item.redCounts + item.blackCounts)) * 100)
+            setBlackSquare((item.blackCounts / (item.whiteCounts + item.redCounts + item.blackCounts)) * 100)
+            setWhiteSquare((item.whiteCounts / (item.whiteCounts + item.redCounts + item.blackCounts)) * 100)
         })
     }, [])
     return (
