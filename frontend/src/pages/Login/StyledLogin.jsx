@@ -95,8 +95,8 @@ export const StyledLogin = styled.section`
 
     .login-box > .problems > p{
         font-size: 12px;
-        color: #EEE;
-
+        color: #E81538;
+        transform: translateY(-10px);
         cursor: pointer;
     }
 

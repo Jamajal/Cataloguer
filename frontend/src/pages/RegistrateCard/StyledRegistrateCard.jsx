@@ -28,7 +28,7 @@ export const StyledRegistrateCard = styled.section`
     }
 
     .cadastrate-card-box{
-        
+        width: 35%;
         padding: 30px;
         background-color: #222;
         border-radius: 20px;

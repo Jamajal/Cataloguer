@@ -1,9 +1,30 @@
-import { Link } from 'react-router-dom'
-import { StyledLogin } from './StyledLogin'
+import { Link, useNavigate } from 'react-router-dom';
+import { StyledLogin } from './StyledLogin';
+import { useState } from 'react';
+import useAuth from '../../hooks/useAuth';
 
 export default function Login() {
-    function handleClick() {
-        console.log("Clicou!")
+    const { signin } = useAuth();
+    const navigate = useNavigate();
+
+    const [ email, setEmail ] = useState();
+    const [ password, setPassword ] = useState();
+    const [ error, setError ] = useState();
+
+    function handleLogin() {
+        if(!email | !password){
+            setError("Preencha todos os campos!");
+            return;
+        }
+
+        const res = signin(email, password);
+        
+        if(res){
+            setError(res);
+            return;
+        };
+
+        navigate("/");
     }
 
     return (
@@ -12,13 +33,26 @@ export default function Login() {
             <div className="login-box">
                 <h2>Faça seu login</h2>
                 <form method="GET" action="#">
-                    <input type="email" placeholder="Digite seu email" />
-                    <input type="password" name="password" placeholder="Digite sua senha" id="password" />
-                    <input type="button" value="Entrar" onClick={handleClick} />
+                    <input 
+                        type="email" 
+                        placeholder="Digite seu email" 
+                        onChange={e => [setEmail(e.target.value), setError("")]}
+                    />
+                    <input 
+                        type="password" 
+                        name="password" 
+                        placeholder="Digite sua senha" 
+                        id="password" 
+                        onChange={e => [setPassword(e.target.value), setError("")]}
+                    />
+                    <input 
+                        type="button" 
+                        value="Entrar" 
+                        onClick={handleLogin} 
+                    />
                 </form>
                 <div className="problems">
-                    {/* <p>Esqueci minha senha</p>
-                    <p>Não sou cadastrado. <span>Criar conta</span></p> */}
+                    <p>{error}</p>
                 </div>
             </div>
         </StyledLogin>

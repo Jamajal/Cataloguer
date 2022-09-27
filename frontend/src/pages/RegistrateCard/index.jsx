@@ -2,6 +2,7 @@ import { StyledRegistrateCard } from './StyledRegistrateCard'
 import { useState } from 'react'
 import { Link } from 'react-router-dom';
 import api from '../../http/api'
+
 export default function RegistrateCard() {
     const [strategy, setStrategy] = useState("Normal")
     const [textName, setTextName] = useState("")
