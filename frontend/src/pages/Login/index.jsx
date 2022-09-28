@@ -7,19 +7,19 @@ export default function Login() {
     const { signin } = useAuth();
     const navigate = useNavigate();
 
-    const [ email, setEmail ] = useState();
-    const [ password, setPassword ] = useState();
-    const [ error, setError ] = useState();
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+    const [error, setError] = useState();
 
-    function handleLogin() {
-        if(!email | !password){
+    async function handleLogin() {
+        if (!email | !password) {
             setError("Preencha todos os campos!");
             return;
         }
 
-        const res = signin(email, password);
-        
-        if(res){
+        const res = await signin(email, password);
+
+        if (res) {
             setError(res);
             return;
         };
@@ -33,22 +33,22 @@ export default function Login() {
             <div className="login-box">
                 <h2>Faça seu login</h2>
                 <form method="GET" action="#">
-                    <input 
-                        type="email" 
-                        placeholder="Digite seu email" 
+                    <input
+                        type="email"
+                        placeholder="Digite seu email"
                         onChange={e => [setEmail(e.target.value), setError("")]}
                     />
-                    <input 
-                        type="password" 
-                        name="password" 
-                        placeholder="Digite sua senha" 
-                        id="password" 
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Digite sua senha"
+                        id="password"
                         onChange={e => [setPassword(e.target.value), setError("")]}
                     />
-                    <input 
-                        type="button" 
-                        value="Entrar" 
-                        onClick={handleLogin} 
+                    <input
+                        type="button"
+                        value="Entrar"
+                        onClick={handleLogin}
                     />
                 </form>
                 <div className="problems">
